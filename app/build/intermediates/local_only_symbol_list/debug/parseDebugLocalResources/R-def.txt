@@ -1,0 +1,13 @@
+R_DEF: Internal format may change without notice
+local
+id btnEditar
+id btnExcluir
+id btnSalvar
+id etNome
+id etPreco
+id etQuantidade
+id rvProdutos
+id tvInfo
+layout activity_main
+layout item_produto
+string app_name
