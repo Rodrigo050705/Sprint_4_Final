@@ -3,9 +3,14 @@ local
 id btnEditar
 id btnExcluir
 id btnSalvar
+id etAlcool
+id etBusca
+id etId
 id etNome
+id etOrigem
 id etPreco
 id etQuantidade
+id etTipo
 id rvProdutos
 id tvInfo
 layout activity_main

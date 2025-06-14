@@ -26,8 +26,14 @@ class ProdutoAdapter(
 
     inner class ProdutoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(produto: Produto) {
-            itemView.findViewById<TextView>(R.id.tvInfo).text =
-                "${produto.nome} - ${produto.quantidade} und - R$ ${produto.preco}"
+            val info = """
+            ID: ${produto.id}
+            ${produto.nome} - ${produto.quantidade} und - R$ %.2f
+            Origem: ${produto.origem} | Teor: ${produto.alcool}%% | Tipo: ${produto.tipo}
+            """.trimIndent().format(produto.preco)
+
+            itemView.findViewById<TextView>(R.id.tvInfo).text = info
+
             itemView.findViewById<Button>(R.id.btnEditar).setOnClickListener { onEditar(produto) }
             itemView.findViewById<Button>(R.id.btnExcluir).setOnClickListener { onExcluir(produto) }
         }

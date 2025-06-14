@@ -3256,9 +3256,14 @@ id end
 id endToStart
 id enterAlways
 id enterAlwaysCollapsed
+id etAlcool
+id etBusca
+id etId
 id etNome
+id etOrigem
 id etPreco
 id etQuantidade
+id etTipo
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu

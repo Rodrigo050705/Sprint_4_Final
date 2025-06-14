@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.example.estoqueapp.model.Produto
 
-@Database(entities = [Produto::class], version = 1)
+@Database(entities = [Produto::class], version = 2)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun produtoDao(): ProdutoDao
 
@@ -19,7 +19,10 @@ abstract class AppDatabase : RoomDatabase() {
                     context.applicationContext,
                     AppDatabase::class.java,
                     "estoque_db"
-                ).build().also { instancia = it }
+                )
+                .fallbackToDestructiveMigration() // <--- ADICIONE ISSO
+                .build()
+                .also { instancia = it }
             }
         }
     }

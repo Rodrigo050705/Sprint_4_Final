@@ -31,12 +31,12 @@ public final class AppDatabase_Impl extends AppDatabase {
   @Override
   @NonNull
   protected SupportSQLiteOpenHelper createOpenHelper(@NonNull final DatabaseConfiguration config) {
-    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(1) {
+    final SupportSQLiteOpenHelper.Callback _openCallback = new RoomOpenHelper(config, new RoomOpenHelper.Delegate(2) {
       @Override
       public void createAllTables(@NonNull final SupportSQLiteDatabase db) {
-        db.execSQL("CREATE TABLE IF NOT EXISTS `produtos` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nome` TEXT NOT NULL, `quantidade` INTEGER NOT NULL, `preco` REAL NOT NULL)");
+        db.execSQL("CREATE TABLE IF NOT EXISTS `produtos` (`codigo` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `id` TEXT NOT NULL, `nome` TEXT NOT NULL, `quantidade` INTEGER NOT NULL, `preco` REAL NOT NULL, `origem` TEXT NOT NULL, `alcool` REAL NOT NULL, `tipo` TEXT NOT NULL)");
         db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '75a30aaf421881baf9e072910471b384')");
+        db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5b9b0f152b6fd797af589a78f00e76e4')");
       }
 
       @Override
@@ -85,11 +85,15 @@ public final class AppDatabase_Impl extends AppDatabase {
       @NonNull
       public RoomOpenHelper.ValidationResult onValidateSchema(
           @NonNull final SupportSQLiteDatabase db) {
-        final HashMap<String, TableInfo.Column> _columnsProdutos = new HashMap<String, TableInfo.Column>(4);
-        _columnsProdutos.put("id", new TableInfo.Column("id", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        final HashMap<String, TableInfo.Column> _columnsProdutos = new HashMap<String, TableInfo.Column>(8);
+        _columnsProdutos.put("codigo", new TableInfo.Column("codigo", "INTEGER", true, 1, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsProdutos.put("id", new TableInfo.Column("id", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsProdutos.put("nome", new TableInfo.Column("nome", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsProdutos.put("quantidade", new TableInfo.Column("quantidade", "INTEGER", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         _columnsProdutos.put("preco", new TableInfo.Column("preco", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsProdutos.put("origem", new TableInfo.Column("origem", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsProdutos.put("alcool", new TableInfo.Column("alcool", "REAL", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
+        _columnsProdutos.put("tipo", new TableInfo.Column("tipo", "TEXT", true, 0, null, TableInfo.CREATED_FROM_ENTITY));
         final HashSet<TableInfo.ForeignKey> _foreignKeysProdutos = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesProdutos = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoProdutos = new TableInfo("produtos", _columnsProdutos, _foreignKeysProdutos, _indicesProdutos);
@@ -101,7 +105,7 @@ public final class AppDatabase_Impl extends AppDatabase {
         }
         return new RoomOpenHelper.ValidationResult(true, null);
       }
-    }, "75a30aaf421881baf9e072910471b384", "e755b99f6df6340bcb9b44f9d6a97808");
+    }, "5b9b0f152b6fd797af589a78f00e76e4", "9f104098015d40e527bea0b0721811af");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(config.context).name(config.name).callback(_openCallback).build();
     final SupportSQLiteOpenHelper _helper = config.sqliteOpenHelperFactory.create(_sqliteConfig);
     return _helper;

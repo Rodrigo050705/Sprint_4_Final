@@ -1,12 +1,12 @@
-#Fri Jun 13 17:59:22 BRT 2025
-path.4=3/classes.dex
-path.3=7/classes.dex
+#Sat Jun 14 16:46:01 BRT 2025
+path.4=7/classes.dex
+path.3=3/classes.dex
 path.2=10/classes.dex
 path.1=0/classes.dex
 path.5=9/classes.dex
 path.0=classes.dex
-base.4=C\:\\Projeto\\Estoque\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\3\\classes.dex
-base.3=C\:\\Projeto\\Estoque\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
+base.4=C\:\\Projeto\\Estoque\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
+base.3=C\:\\Projeto\\Estoque\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\3\\classes.dex
 base.2=C\:\\Projeto\\Estoque\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\10\\classes.dex
 base.1=C\:\\Projeto\\Estoque\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.0=C\:\\Projeto\\Estoque\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex

@@ -6,6 +6,16 @@
     android:layout_height="match_parent">
 
     <EditText
+    	android:id="@+id/etBusca"
+    	android:hint="Buscar por nome ou ID"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:inputType="text"
+    	android:drawableStart="@android:drawable/ic_menu_search"
+    	android:drawablePadding="8dp"/>
+
+
+    <EditText
         android:id="@+id/etNome"
         android:hint="Nome do Produto"
         android:layout_width="match_parent"
@@ -25,6 +35,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <EditText
+    	android:id="@+id/etId"
+    	android:hint="ID do Produto"
+    	android:layout_width="match_parent"
+   	android:layout_height="wrap_content" />
+
+    <EditText
+    	android:id="@+id/etOrigem"
+    	android:hint="Origem"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content" />
+
+    <EditText
+    	android:id="@+id/etAlcool"
+    	android:hint="Teor Alcoólico (%)"
+    	android:inputType="numberDecimal"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content" />
+
+    <EditText
+    	android:id="@+id/etTipo"
+    	android:hint="Tipo"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content" />
+
     <Button
         android:id="@+id/btnSalvar"
         android:text="Salvar"
@@ -32,8 +67,10 @@
         android:layout_height="wrap_content"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvProdutos"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingTop="16dp"/>
+    	android:id="@+id/rvProdutos"
+    	android:layout_width="match_parent"
+    	android:layout_height="0dp"
+    	android:layout_weight="1"
+    	android:paddingTop="16dp"/>
+
 </LinearLayout>
