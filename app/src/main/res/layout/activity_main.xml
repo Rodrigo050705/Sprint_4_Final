@@ -61,16 +61,20 @@
     	android:layout_height="wrap_content" />
 
     <Button
-        android:id="@+id/btnSalvar"
-        android:text="Salvar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+    	android:id="@+id/btnSalvar"
+    	android:text="Salvar"
+    	android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:backgroundTint="#4CAF50"
+    	android:textColor="#000000"/>
 
     <androidx.recyclerview.widget.RecyclerView
     	android:id="@+id/rvProdutos"
     	android:layout_width="match_parent"
     	android:layout_height="0dp"
     	android:layout_weight="1"
+    	android:focusable="true"
+    	android:focusableInTouchMode="true"
     	android:paddingTop="16dp"/>
 
 </LinearLayout>
