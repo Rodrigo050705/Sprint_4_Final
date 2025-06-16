@@ -71,22 +71,27 @@ class MainActivity : AppCompatActivity() {
         }
 
         btnSalvar.setOnClickListener {
-            val nome = etNome.text.toString()
-            val quantidade = etQuantidade.text.toString().toIntOrNull() ?: 0
-            val preco = etPreco.text.toString().toDoubleOrNull() ?: 0.0
-            val idProduto = etId.text.toString()
-            val origem = etOrigem.text.toString()
-            val alcool = etAlcool.text.toString().toDoubleOrNull() ?: 0.0
-            val tipo = etTipo.text.toString()
+            val nome = etNome.text.toString().trim()
+            val quantidadeTexto = etQuantidade.text.toString().trim()
+            val precoTexto = etPreco.text.toString().trim()
+            val id = etId.text.toString().trim()
+            val origem = etOrigem.text.toString().trim()
+            val alcoolTexto = etAlcool.text.toString().trim()
+            val tipo = etTipo.text.toString().trim()
 
-            if (nome.isBlank()) {
-                Toast.makeText(this, "Nome é obrigatório", Toast.LENGTH_SHORT).show()
+            if (nome.isEmpty() || quantidadeTexto.isEmpty() || precoTexto.isEmpty() ||
+                id.isEmpty() || origem.isEmpty() || alcoolTexto.isEmpty() || tipo.isEmpty()) {
+                Toast.makeText(this, "Preencha todos os campos obrigatórios", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
+            val quantidade = quantidadeTexto.toInt()
+            val preco = precoTexto.toDouble()
+            val alcool = alcoolTexto.toDouble()
+
             val produto = Produto(
                 codigo = produtoEditando?.codigo ?: 0,
-                id = idProduto,
+                id = id,
                 nome = nome,
                 quantidade = quantidade,
                 preco = preco,
@@ -94,7 +99,6 @@ class MainActivity : AppCompatActivity() {
                 alcool = alcool,
                 tipo = tipo
             )
-
 
             if (produtoEditando == null) {
                 viewModel.inserir(produto)
@@ -111,7 +115,6 @@ class MainActivity : AppCompatActivity() {
             etOrigem.text.clear()
             etAlcool.text.clear()
             etTipo.text.clear()
-
         }
     }
 }
